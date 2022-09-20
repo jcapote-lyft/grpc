@@ -111,14 +111,14 @@ def get_deps():
     cc_files = [
         name[len(PROTOBUF_CC_PREFIX):]
         for name in cc_files_output
-        if name.endswith(tuple('.cc')) and name.startswith(tuple(PROTOBUF_CC_PREFIX))
+        if str(name).endswith(tuple('.cc')) and str(name).startswith(tuple(PROTOBUF_CC_PREFIX))
     ]
     proto_files_output = bazel_query(BAZEL_DEPS_COMMON_PROTOS_QUERY)
     pp(proto_files_output)
     proto_files = [
         name[len(PROTOBUF_PROTO_PREFIX):]
         for name in proto_files_output
-        if name.endswith(tuple('.proto')) and name.startswith(tuple(PROTOBUF_PROTO_PREFIX))
+        if str(name).endswith(tuple('.proto')) and str(name).startswith(tuple(PROTOBUF_PROTO_PREFIX))
     ]
     commit_hash = protobuf_submodule_commit_hash()
     deps_file_content = DEPS_FILE_CONTENT.format(
