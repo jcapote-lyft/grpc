@@ -15,6 +15,7 @@
 # limitations under the License.
 
 from __future__ import print_function
+from pprint import pprint as pp
 
 import errno
 import filecmp
@@ -113,6 +114,7 @@ def get_deps():
         if name.endswith(tuple('.cc')) and name.startswith(tuple(PROTOBUF_CC_PREFIX))
     ]
     proto_files_output = bazel_query(BAZEL_DEPS_COMMON_PROTOS_QUERY)
+    pp(proto_files_output)
     proto_files = [
         name[len(PROTOBUF_PROTO_PREFIX):]
         for name in proto_files_output
