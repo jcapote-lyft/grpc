@@ -126,7 +126,7 @@ def get_deps():
         proto_files=proto_files,
         cc_include=repr(GRPC_PYTHON_PROTOBUF_RELATIVE_ROOT),
         proto_include=repr(GRPC_PYTHON_PROTOBUF_RELATIVE_ROOT),
-        commit_hash=COMMIT_HASH_PREFIX + commit_hash + COMMIT_HASH_SUFFIX)
+        commit_hash=str(COMMIT_HASH_PREFIX) + str(commit_hash) + str(COMMIT_HASH_SUFFIX))
     return deps_file_content
 
 
